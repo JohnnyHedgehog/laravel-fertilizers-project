@@ -9,7 +9,10 @@
 <div class="row mt-1 mb-1">
     <div class="col">
         <a href="{{route('admin.client.index')}}" class="btn btn-primary col-sm-2 col-md-1">Назад</a>
+        <a href="{{route('admin.client.word-export.index', $client->id)}}" class="btn btn-success ml-3">Скачать
+            справку</a>
     </div>
+
 </div>
 <div class="row mt-3">
     <div class="card col-lg-6">

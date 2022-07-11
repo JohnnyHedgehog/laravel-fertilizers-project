@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
+
     <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -15,10 +16,15 @@
     <link rel="stylesheet" href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/css/loading.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+
+
+
+
 
 </head>
 
@@ -64,7 +70,7 @@
 
             <!-- Main content -->
             <section class="content ml-3 mr-3">
-                <div>
+                <div class="h-100">
                     @yield('content')
                 </div>
             </section>
@@ -103,6 +109,7 @@
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+    <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
     <script>
         // СКРИПТЫ ДЛЯ СТРАНИЦЫ С ПОИСКОМ
@@ -127,15 +134,26 @@
         window.onload = filterLinks;
 
         // подключаем множественный select2
+        // подключаем custom file input
         $(document).ready(function() {
-        $('.select2').select2();
+        $('.select2').select2();       
+            bsCustomFileInput.init(); 
+       
         })
+
+      
+
 
         // делаем поиск на странице клиентов открытым, если в него введены данные
         const search = document.getElementById('collapseClientSearch');
         if(window.location.search) {
         search.classList.add('show');
         }
+        
+          // подключаем bs-custom-file-input
+        $(function () {
+            bsCustomFileInput.init();
+        });
         
     </script>
 </body>

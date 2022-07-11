@@ -2,7 +2,7 @@
 @section('content')
 <h1>Группы культур</h1>
 <div class="row d-flex justify-content-between">
-    <a href="{{route('admin.culture.create')}}" class="btn btn-success mb-3">Добавить</a>
+    <a href="{{route('admin.culture.create')}}" class="btn btn-success mb-3 mr-3">Добавить</a>
     <a href="{{route('admin.culture.trash.index')}}" class="btn btn-outline-danger mb-3">Удаленные позиции</a>
 </div>
 <div class="row">

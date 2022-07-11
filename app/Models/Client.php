@@ -18,7 +18,7 @@ class Client extends Model {
 
     // Возвращаем дату подписания в формате Carbon для удобства вывода
     public function dateOfSigned() {
-        return Carbon::parse($this->date_of_signed);;
+        return Carbon::parse($this->date_of_signed)->locale('ru_RU');
     }
 
     // Возвращаем сумму договора в красивом формате

@@ -16,7 +16,7 @@ class IndexController extends Controller {
 
         $filter = app()->make(FertilizerFilter::class, ['queryParams' => array_filter($data)]);
 
-        $fertilizers = Fertilizer::filter($filter)->get();
+        $fertilizers = Fertilizer::filter($filter)->paginate(20);
 
         $cultures = Culture::all();
 

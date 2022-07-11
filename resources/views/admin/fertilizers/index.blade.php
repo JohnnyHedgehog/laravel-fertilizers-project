@@ -2,7 +2,13 @@
 @section('content')
 <h1>Удобрения</h1>
 <div class="row d-flex justify-content-between">
-    <a href="{{route('admin.fertilizer.create')}}" class="btn btn-success mb-3">Добавить</a>
+    <div>
+        <a href="{{route('admin.fertilizer.create')}}" class="btn btn-success mb-3 mr-3">Добавить</a>
+        <a href="{{route('admin.fertilizer.import.create')}}" class="btn btn-outline-success mb-3 mr-3"> <i
+                class="nav-icon fas fa-file-import"></i> Импорт Excel</a>
+        <a href="{{route('admin.fertilizer.export.index')}}" class="btn btn-outline-success mb-3 mr-3"> <i
+                class="nav-icon fas fa-file-export"></i> Экспорт Excel</a>
+    </div>
     <a href="{{route('admin.fertilizer.trash.index')}}" class="btn btn-outline-danger mb-3">Удаленные позиции</a>
 </div>
 <div class="row">

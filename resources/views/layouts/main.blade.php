@@ -38,6 +38,11 @@
     <div class="container">
         @yield('content')
     </div>
+    <div class="footer">
+        <div class="row d-flex justify-content-center bg-color-grey">
+            <p class='text-center'>&copy; ИП Иванов А.С. 2022</p>
+        </div>
+    </div>
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>

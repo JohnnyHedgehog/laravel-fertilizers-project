@@ -2,15 +2,22 @@
 @section('content')
 <h1>Клиенты</h1>
 <div class="row d-flex justify-content-between">
-    <a href="{{route('admin.client.create')}}" class="btn btn-success mb-3">Добавить</a>
+    <div class='d-flex'>
+        <a href="{{route('admin.client.create')}}" class="btn btn-success mb-3 mr-3">Добавить</a>
+        <a href="{{route('admin.client.import.create')}}" class="btn btn-outline-success mb-3 mr-3"> <i
+                class="nav-icon fas fa-file-import"></i> Импорт Excel</a>
+        <a href="{{route('admin.client.export.index')}}" class="btn btn-outline-success mb-3 mr-3"> <i
+                class="nav-icon fas fa-file-export"></i> Экспорт Excel</a>
+        <a class="btn btn-outline-primary collapsed mb-3" id="collapsedClientSearch" data-toggle="collapse"
+            href="#collapseClientSearch" role="button" aria-expanded="true" aria-controls="collapseClientSearch">
+            <i class="fas fa-search"></i> Поиск
+        </a>
+    </div>
     <a href="{{route('admin.client.trash.index')}}" class="btn btn-outline-danger mb-3">Удаленные позиции</a>
 </div>
 <div class="row">
     <p>
-        <a class="btn btn-outline-primary collapsed" id="collapsedClientSearch" data-toggle="collapse"
-            href="#collapseClientSearch" role="button" aria-expanded="true" aria-controls="collapseClientSearch">
-            <i class="fas fa-search"></i> Поиск
-        </a>
+
     </p>
 </div>
 <div class="row ">
@@ -129,7 +136,7 @@
                                 class="fas fa-arrow-up"></i></a><a href="#" id="purchase-desc"><i
                                 class="fas fa-arrow-down"></i></a></th>
                     <th scope="col">Регион</th>
-                    <th scope="col" colspan="3" class="text-center">Действия</th>
+                    <th scope="col" colspan="4" class="text-center">Действия</th>
                 </tr>
             </thead>
             <tbody>
@@ -140,6 +147,10 @@
                     <td>{{$client->dateOfSigned()->translatedFormat('d.m.Y')}}</td>
                     <td>{{$client->purchaseFormatted()}}</td>
                     <td>{{$client->region}}</td>
+                    <td class="text-center">
+                        <a href="{{route('admin.client.word-export.index',$client->id)}}"><i
+                                class="fas fa-file-download text-info"></i></a>
+                    </td>
                     <td class="text-center">
                         <a href="{{route('admin.client.show',$client->id)}}"><i class="fas fa-eye"></i></a>
                     </td>

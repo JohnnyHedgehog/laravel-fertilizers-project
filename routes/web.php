@@ -56,6 +56,23 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
             Route::get('/', 'IndexController')->name('admin.client.trash.index');
             Route::patch('/{id}', 'UpdateController')->where('id', '[0-9]+')->name('admin.client.trash.update');
         });
+
+        // Роуты импорта клиентов через Excel
+        Route::group(['namespace' => 'Import', 'prefix' => 'import'], function () {
+            Route::get('/', 'CreateController')->name('admin.client.import.create');
+            Route::post('/', 'StoreController')->name('admin.client.import.store');
+            Route::get('/loading', 'LoadingController')->name('admin.client.import.loading');
+        });
+
+        // Роут экспорта клиентов через Excel и Word
+        Route::group(['namespace' => 'Export', 'prefix' => 'export'], function () {
+            Route::get('/', 'IndexController')->name('admin.client.export.index');
+        });
+
+        // Роуты выгрузки документов клиентов через Word
+        Route::group(['namespace' => 'WordExport', 'prefix' => 'word-export'], function () {
+            Route::get('/{client}', 'IndexController')->where('client', '[0-9]+')->name('admin.client.word-export.index');
+        });
     });
 
     // Группы культур
@@ -90,6 +107,19 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
             Route::get('/', 'IndexController')->name('admin.fertilizer.trash.index');
             Route::patch('/{fertilizer}', 'UpdateController')->where('fertilizer', '[0-9]+')->name('admin.fertilizer.trash.update');
         });
+
+        // Роуты импорта удобрений через Excel
+        Route::group(['namespace' => 'Import', 'prefix' => 'import'], function () {
+            Route::get('/', 'CreateController')->name('admin.fertilizer.import.create');
+            Route::post('/', 'StoreController')->name('admin.fertilizer.import.store');
+
+            Route::get('/loading', 'LoadingController')->name('admin.fertilizer.import.loading');
+        });
+
+        // Роут экспорта удобрений через Excel
+        Route::group(['namespace' => 'Export', 'prefix' => 'export'], function () {
+            Route::get('/', 'IndexController')->name('admin.fertilizer.export.index');
+        });
     });
 
     // Пользователи
@@ -107,5 +137,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
             Route::get('/', 'IndexController')->name('admin.user.trash.index');
             Route::patch('/{user}', 'UpdateController')->where('user', '[0-9]+')->name('admin.user.trash.update');
         });
+    });
+
+    // Импорт Excel
+    Route::group(['namespace' => 'ExcelImport', 'prefix' => 'excel-imports'], function () {
+        Route::get('/', 'IndexController')->name('admin.excel-import.index');
     });
 });
