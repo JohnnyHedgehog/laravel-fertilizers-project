@@ -35,6 +35,15 @@
         </div>
     </nav>
     @endauth
+    @guest
+    <nav class="navbar sticky-top bg-light">
+        <div class="container-fluid">
+            <div class="container d-flex justify-content-end">
+                <a href="{{route('admin.index')}}" class="btn btn-outline-success mr-2">Авторизоваться</a>
+            </div>
+        </div>
+    </nav>
+    @endguest
     <div class="container">
         @yield('content')
     </div>

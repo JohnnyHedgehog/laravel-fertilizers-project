@@ -10356,3 +10356,6 @@ textarea.form-control-lg {
   padding-top: 15px;
   background-color: #eee;
 }
+.footer .row {
+  --bs-gutter-x: 0;
+}

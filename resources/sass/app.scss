@@ -76,4 +76,7 @@
   .footer {
     padding-top: 15px;
     background-color: #eee;
+    .row {
+      --bs-gutter-x: 0;
+    }
   }
